@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>Badges Factory</title>
+		<link rel='icon' type='image/png' href='favicon.png' />
+		<meta name='viewport' content='width=device-width,initial-scale=1'>
+		<link rel='stylesheet' href='style.css' />
+	</head>
+	<body>
+		<div id='app'>		
+			<h1>Badge Factory<span> ~ for beautiful custom badge</span></h1>
+			
+			<div class='col-12' id='render'>
+				<!-- Badge SVG will go here -->
+			</div>
+			<div class='col-12' id='tocopy'>
+				<input type='text' id='copy' class='col-8' />
+			</div>
+			
+			<hr />
+			
+			<div id='creator' class='col-12'>
+				<div class='col-6 padr'><input type='text' placeholder='subject' id='subject' autocomplete='off' class='full'/></div>
+				<div class='col-6 padl'><input type='text' placeholder='value' id='value' autocomplete='off' class='full' /></div>
+				<div id='colors' class='col-6'>
+					<div class='col-12 padr'>
+						<script type='text/template' id='t_color'>
+							{{ var first = true; var i = 0; for(var prop in it) { }}
+								<input class='hidden' type='radio' name='color' id='c_{{= prop }}' value='{{= it[prop].colorB }}' data-colorname='{{= prop }}' {{? first }} checked {{?}} />
+								<label class='col-4 square' for='c_{{= prop }}'>
+									<div class='content {{? (i % 3) == 0 }}padr{{??}}padl{{?}} {{? ((i + 1) % 3) == 0 }}padl{{??}}padr{{?}}'><div class='inner' style='background:{{= it[prop].colorB }}'></div></div>
+								</label>
+							{{ first = false; ++i } }}
+						</script>
+					</div>
+					<input class='hidden' type='radio' name='color' id='c_custom' value='custom' data-colorname='' />
+					<label class='col-12 padr' for='c_custom'><input class='col-12' type='text' id='custom' placeholder='#FF69A4' value='#FF69A4' autocomplete='off' /></label>
+				</div>
+				<br />
+				<div id='stylenames' class='col-6 padl'>
+					<script type='text/template' id='t_style'>
+						{{~ it :name:index }}
+							<input class='hidden' type='radio' name='style' id='s_{{= name }}' value='{{= name }}' {{? index == 0 }} checked {{?}} />
+							<label class='col-12 line {{? index == 0}}first{{?}} {{? index == it.length - 1}}last{{?}}' for='s_{{= name }}' ><img id='b_{{= name }}' src='' /></label>
+						{{~}}
+					</script>
+				</div>
+			</div>
+			<div class='clear'></div>
+			
+			<footer>
+				Tool based on <a href='https://shields.io'>Shields.io</a>
+				<div>~ created by <a href='https://github.com/rozaxe'>rozaxe</a></div>
+			</footer>
+		</div>
+		
+		<script src='doT.1.0.3.min.js'></script>
+		<script src='factory.js'></script>
+		<script src='app.js'></script>
+	</body>
+</html>
