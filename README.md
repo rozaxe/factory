@@ -1,6 +1,6 @@
 # Badge Factory
 
-![version 1.0.0](https://img.shields.io/badge/version-1.0.0-brightgreen.svg)
+![version 1.0.1](https://img.shields.io/badge/version-1.0.1-brightgreen.svg)
 ![license CC0](https://img.shields.io/badge/license-CC0-blue.svg)
 ![custom badge](https://img.shields.io/badge/custom-badge-FF69A4.svg)
 

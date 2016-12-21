@@ -106,8 +106,8 @@ Factory.prototype.compileBadge = function(style, subject, value, color) {
 
 	var sty = style
 	var func = this.templates[sty]
-	var sub = subject.replace(/_/, ' ')
-	var val = value
+	var sub = subject.replace(/_/g, ' ')
+	var val = value.replace(/_/g, ' ')
 	
 	var subjectWidth = getCanvasSize(subject) + 10
 	var valueWidth = getCanvasSize(value) + 10

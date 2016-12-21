@@ -41,13 +41,17 @@ window.onload = function() {
 	/*
 	 * Functions
 	 */
+
+	function sanitize(s) {
+		return s.replace(/-/g, '').replace(/ /g, '_')
+	}
 	 
 	function getSubject() {
-		return dom.subject.value.replace(/-/, '').replace(/ /, '_') || 'subject'
+		return sanitize(dom.subject.value || 'subject')
 	}
 	
 	function getValue() {
-		return dom.value.value || 'value'
+		return sanitize(dom.value.value || 'value')
 	}
 	
 	function getStyle() {
