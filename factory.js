@@ -10,7 +10,7 @@
  * Store all badge's styles
  * @constant {string[]}
  */
-STYLENAMES = ['flat', 'flat-square', 'plastic', 'social']
+STYLENAMES = ['flat', 'flat-square', 'plastic', 'for-the-badge', 'social']
 
 /**
  * Base path to download template
